@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es-sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Datos Futurista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-material-ui/material-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Gestor de Datos </h1>
+            <button id="theme-toggle">Cambiar Tema</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="form-section">
+            <h2>Agregar Nuevo Registro</h2>
+            <form id="data-form" class="two-column-form">
+                <div class="form-group">
+                    <label for="photo"><i class="fas fa-camera"></i> Foto:</label>
+                    <input type="file" id="photo" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="firstName"><i class="fas fa-user"></i> Nombre:</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName"><i class="fas fa-user"></i> Apellido:</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user-circle"></i> Usuario:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="age"><i class="fas fa-birthday-cake"></i> Edad:</label>
+                    <input type="number" id="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="address"><i class="fas fa-home"></i> Dirección:</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Teléfono:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="button-agregar">
+                    <button type="submit"><i class="fas fa-plus"></i> Agregar</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="table-section">
+            <h2>Registros</h2>
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Edad</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+                        <td><img src="foto.jpg" alt="Foto"></td>
+                        <td>Juan</td>
+                        <td>Pérez</td>
+                        <td>jperez</td>
+                        <td>jperez@example.com</td>
+                        <td>30</td>
+                        <td>Calle Falsa 123</td>
+                        <td>123-456-7890</td>
+                        <td>
+                            <button class="edit-btn">Editar</button>
+                            <button class="delete-btn">Eliminar</button>
+                        </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Gestor de Datos </p>
+    </footer>
+ 
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
