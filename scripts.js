@@ -71,3 +71,71 @@ function editRecord(id) {
         document.getElementById('age').value = record.age;
         document.getElementById('address').value = record.address;
         document.getElementById('phone').value = record.phone;
+
+        // Cambiar el botón de "Agregar" a "Actualizar"
+        const submitBtn = dataForm.querySelector('button[type="submit"]');
+        submitBtn.textContent = 'Actualizar';
+        submitBtn.onclick = function(event) {
+            event.preventDefault();
+            if (confirm('¿Estás seguro de que quieres actualizar este registro?')) {
+                record.firstName = document.getElementById('firstName').value;
+                record.lastName = document.getElementById('lastName').value;
+                record.username = document.getElementById('username').value;
+                record.email = document.getElementById('email').value;
+                record.age = document.getElementById('age').value;
+                record.address = document.getElementById('address').value;
+                record.phone = document.getElementById('phone').value;
+                const newPhoto = document.getElementById('photo').files[0];
+                if (newPhoto) {
+                    record.photo = URL.createObjectURL(newPhoto);
+                }
+                renderTable();
+                dataForm.reset();
+                submitBtn.innerHTML = '<i class="fas fa-plus"></i> Agregar';
+                submitBtn.onclick = addRecord;
+                showMessage('¡Éxito!', 'Registro actualizado correctamente', 'success');
+            }
+        };
+    }
+}
+
+// Función para confirmar eliminación
+function confirmDelete(id) {
+    if (confirm('¿Estás seguro de que quieres eliminar este registro?')) {
+        deleteRecord(id);
+    }
+}
+
+// Función para eliminar un registro
+function deleteRecord(id) {
+    data = data.filter(r => r.id !== id);
+    renderTable();
+    showMessage('Eliminado', 'El registro ha sido eliminado', 'info');
+}
+
+dataForm.addEventListener('submit', addRecord);
+themeToggle.addEventListener('click', toggleTheme);
+
+// Renderizar la tabla inicial
+renderTable();
+
+// Funciones para mostrar mensajes y confetti
+function showMessage(title, text, icon) {
+    Swal.fire({
+        title: title,
+        text: text,
+        icon: icon,
+        confirmButtonText: 'OK'
+    });
+}
+
+function showConfetti() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+}
