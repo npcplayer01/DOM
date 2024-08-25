@@ -43,8 +43,18 @@ function renderTable() {
     dataTable.innerHTML = '';
     data.forEach(record => {
         const row = dataTable.insertRow();
+        row.innerHTML = `
+        <td>${record.photo ? `<img src="${record.photo}" alt="Foto de ${record.firstName}" width="50">` : 'Sin foto'}</td>
+        <td>${record.firstName}</td>
+        <td>${record.lastName}</td>
+        <td>${record.username}</td>
+        <td>${record.email}</td>
+        <td>${record.age}</td>
+        <td>${record.address}</td>
+        <td>${record.phone}</td>
+        <td>
 
-        
 
+`;
     });
 }
