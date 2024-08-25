@@ -59,3 +59,15 @@ function renderTable() {
         `;
     });
 }
+
+// Función para editar un registro
+function editRecord(id) {
+    const record = data.find(r => r.id === id);
+    if (record) {
+        document.getElementById('firstName').value = record.firstName;
+        document.getElementById('lastName').value = record.lastName;
+        document.getElementById('username').value = record.username;
+        document.getElementById('email').value = record.email;
+        document.getElementById('age').value = record.age;
+        document.getElementById('address').value = record.address;
+        document.getElementById('phone').value = record.phone;
