@@ -17,7 +17,18 @@ function addRecord(event) {
     const age = document.getElementById('age').value;
     const address = document.getElementById('address').value;
     const phone = document.getElementById('phone').value;
-
+    
+    const newRecord = { 
+        photo: photo ? URL.createObjectURL(photo) : null,
+        firstName, 
+        lastName, 
+        username, 
+        email, 
+        age, 
+        address, 
+        phone,
+        id: Date.now() 
+    };
 
 
 
