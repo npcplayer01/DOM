@@ -29,12 +29,22 @@ function addRecord(event) {
         phone,
         id: Date.now()
     };
-
     data.push(newRecord);
 
     renderTable();
     dataForm.reset();
     showMessage('¡Éxito!', 'Registro agregado correctamente', 'success');
     showConfetti();
+}
 
+
+// Función para renderizar la tabla
+function renderTable() {
+    dataTable.innerHTML = '';
+    data.forEach(record => {
+        const row = dataTable.insertRow();
+
+        
+
+    });
 }
