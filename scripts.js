@@ -17,19 +17,24 @@ function addRecord(event) {
     const age = document.getElementById('age').value;
     const address = document.getElementById('address').value;
     const phone = document.getElementById('phone').value;
-    
-    const newRecord = { 
+
+    const newRecord = {
         photo: photo ? URL.createObjectURL(photo) : null,
-        firstName, 
-        lastName, 
-        username, 
-        email, 
-        age, 
-        address, 
+        firstName,
+        lastName,
+        username,
+        email,
+        age,
+        address,
         phone,
-        id: Date.now() 
+        id: Date.now()
     };
 
+    data.push(newRecord);
 
+    renderTable();
+    dataForm.reset();
+    showMessage('¡Éxito!', 'Registro agregado correctamente', 'success');
+    showConfetti();
 
 }
